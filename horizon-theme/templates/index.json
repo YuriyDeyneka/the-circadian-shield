@@ -1,0 +1,796 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */{
+  "sections": {
+    "hero_cs": {
+      "type": "hero",
+      "blocks": {
+        "eyebrow_cs": {
+          "type": "text",
+          "name": "Eyebrow",
+          "settings": {
+            "text": "<p>Sleep · Focus · Recovery</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "headline_cs": {
+          "type": "text",
+          "name": "Headline",
+          "settings": {
+            "text": "<h1>Finally, The \u201cOff Switch\u201d For Your Racing Mind.</h1>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h1",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "display-tight",
+            "letter_spacing": "heading-normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "subtitle_cs": {
+          "type": "text",
+          "name": "Subtitle",
+          "settings": {
+            "text": "<p>White noise for deeper sleep \u00b7 cleaner focus \u00b7 zero distractions</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1.125rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_cs": {
+          "type": "button",
+          "name": "CTA Button",
+          "settings": {
+            "label": "Shop The Circadian Shield \u2014 Free Shipping",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "reviews_cs": {
+          "type": "text",
+          "name": "Reviews Badge",
+          "settings": {
+            "text": "<p>\u2605\u2605\u2605\u2605\u2605 Trusted by 1,284+ sleepers \u00b7 4.9/5 Rating</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_cs",
+        "headline_cs",
+        "subtitle_cs",
+        "cta_cs",
+        "reviews_cs"
+      ],
+      "name": "Hero",
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "full-width",
+        "section_height": "large",
+        "section_height_custom": 80,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#0f172acc",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 120,
+        "padding-block-end": 80
+      }
+    },
+    "marquee_trust": {
+      "type": "marquee",
+      "blocks": {
+        "text_ship": {
+          "type": "text",
+          "settings": {
+            "text": "Free Priority Shipping",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_1": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "text_guarantee": {
+          "type": "text",
+          "settings": {
+            "text": "90-Night Sleep Guarantee",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_2": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "text_rating": {
+          "type": "text",
+          "settings": {
+            "text": "\u2605 4.9 Rating \u00b7 1,284+ Reviews",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_3": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "text_sounds": {
+          "type": "text",
+          "settings": {
+            "text": "12 Clinically-Mapped Soundscapes",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_4": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "text_config": {
+          "type": "text",
+          "settings": {
+            "text": "Zero Configuration",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_5": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "text_light": {
+          "type": "text",
+          "settings": {
+            "text": "Anti-Blue Light Shield",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_ship",
+        "div_1",
+        "text_guarantee",
+        "div_2",
+        "text_rating",
+        "div_3",
+        "text_sounds",
+        "div_4",
+        "text_config",
+        "div_5",
+        "text_light"
+      ],
+      "name": "Trust Marquee",
+      "settings": {
+        "movement_direction": "reverse",
+        "color_scheme": "scheme-5",
+        "padding-block-start": 18,
+        "padding-block-end": 18,
+        "gap_between_elements": 40
+      }
+    },
+    "featured_product_cs": {
+      "type": "featured-product",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "name": "Product Media"
+        },
+        "featured-product": {
+          "type": "_featured-product",
+          "static": true,
+          "name": "Product",
+          "blocks": {
+            "featured-product-title": {
+              "type": "product-title",
+              "name": "Title",
+              "static": true,
+              "settings": {
+                "type_preset": "h3",
+                "width": "100%"
+              }
+            },
+            "featured-product-price": {
+              "type": "_featured-product-price",
+              "name": "Price",
+              "static": true
+            },
+            "featured-product-gallery": {
+              "type": "_featured-product-gallery",
+              "name": "Image",
+              "static": true
+            },
+            "featured-product-swatches": {
+              "type": "swatches",
+              "name": "Swatches",
+              "static": true,
+              "settings": {
+                "hide_padding": true
+              }
+            }
+          }
+        }
+      },
+      "name": "The Circadian Shield",
+      "settings": {
+        "layout": "media-left",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "divider_1": {
+      "type": "divider",
+      "blocks": {},
+      "block_order": [],
+      "name": "Divider",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "show_line": false,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "features_intro": {
+      "type": "media-with-content",
+      "blocks": {
+        "eyebrow_feat": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Biological Override</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "heading_feat": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Engineered to silence your environment.</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "display-tight",
+            "letter_spacing": "heading-normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "body_feat": {
+          "type": "text",
+          "settings": {
+            "text": "<p>White noise not only promotes deep sleep \u2014 it covers the interference of external noise to help you focus on studying and working. One device. Two superpowers.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "feat1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Invisible Sound Wall</strong> \u2014 Drowns out sirens, barking dogs, thin walls, and office chatter that fragments your sleep and focus.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "feat2": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Anti-Blue Light Shield</strong> \u2014 Biological red-spectrum glow signals your brain to start melatonin production immediately.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "feat3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Deep Work Mode</strong> \u2014 Masks distracting interruptions so you enter flow state faster and stay there longer.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_feat": {
+          "type": "button",
+          "settings": {
+            "label": "Shop Now \u2014 Free Shipping",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_feat",
+        "heading_feat",
+        "body_feat",
+        "feat1",
+        "feat2",
+        "feat3",
+        "cta_feat"
+      ],
+      "name": "Features Section",
+      "settings": {
+        "section_width": "page-width",
+        "media_position": "right",
+        "vertical_alignment": "center",
+        "gap": 64,
+        "media_width": 50,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "marquee_social": {
+      "type": "marquee",
+      "blocks": {
+        "review_1": {
+          "type": "text",
+          "settings": {
+            "text": "\u201cFell asleep in under 10 minutes for the first time in years\u201d \u2014 Sarah M.",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_r1": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "review_2": {
+          "type": "text",
+          "settings": {
+            "text": "\u201cMy productivity doubled. I can\u2019t work without it now.\u201d \u2014 James T.",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_r2": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "review_3": {
+          "type": "text",
+          "settings": {
+            "text": "\u201cThe baby sleeps through the night now. Game changer.\u201d \u2014 Emily R.",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_r3": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "review_4": {
+          "type": "text",
+          "settings": {
+            "text": "\u201cWoke up refreshed every day for the past 3 months.\u201d \u2014 David K.",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        },
+        "div_r4": {
+          "type": "_divider",
+          "blocks": {}
+        },
+        "review_5": {
+          "type": "text",
+          "settings": {
+            "text": "\u201cNo melatonin hangover, just deep natural sleep.\u201d \u2014 Priya S.",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "review_1",
+        "div_r1",
+        "review_2",
+        "div_r2",
+        "review_3",
+        "div_r3",
+        "review_4",
+        "div_r4",
+        "review_5"
+      ],
+      "name": "Review Marquee",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 32,
+        "padding-block-end": 32,
+        "gap_between_elements": 48
+      }
+    },
+    "guarantee_cs": {
+      "type": "media-with-content",
+      "blocks": {
+        "eyebrow_g": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Risk-Free</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-subheading--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "wide",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "heading_g": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Protected by our 90-Night Deep Sleep Guarantee</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "display-tight",
+            "letter_spacing": "heading-normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "body_g": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you don\u2019t experience the best sleep of your life in 90 nights, return it for a full refund. We\u2019ll even cover return shipping. No questions asked.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cta_g": {
+          "type": "button",
+          "settings": {
+            "label": "Try It Risk-Free Tonight",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_g",
+        "heading_g",
+        "body_g",
+        "cta_g"
+      ],
+      "name": "Guarantee Section",
+      "settings": {
+        "section_width": "page-width",
+        "media_position": "left",
+        "vertical_alignment": "center",
+        "gap": 64,
+        "media_width": 50,
+        "color_scheme": "scheme-5",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": [
+    "hero_cs",
+    "marquee_trust",
+    "featured_product_cs",
+    "divider_1",
+    "features_intro",
+    "marquee_social",
+    "guarantee_cs"
+  ]
+}
