@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "announcement-bar": { "type": "announcement-bar", "settings": {} },
+    "header": { "type": "header", "settings": {} },
+    "product-buy-box": { "type": "product-buy-box", "settings": {} },
+    "trust-strip": { "type": "trust-strip", "settings": {} },
+    "use-case-banner": { "type": "use-case-banner", "settings": {} },
+    "features": { "type": "features", "settings": {} },
+    "beliefs": { "type": "beliefs", "settings": {} },
+    "reviews": { "type": "reviews", "settings": {} },
+    "faq": { "type": "faq", "settings": {} },
+    "footer": { "type": "footer", "settings": {} }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "product-buy-box",
+    "trust-strip",
+    "use-case-banner",
+    "features",
+    "beliefs",
+    "reviews",
+    "faq",
+    "footer"
+  ]
+}

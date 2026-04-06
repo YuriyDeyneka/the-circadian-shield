@@ -1,0 +1,70 @@
+<section class="bg-slate-900 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-8">
+      {{ section.settings.eyebrow | default: 'White noise not only promotes sleep — it covers external interference so you can focus' }}
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+      <div class="flex flex-col items-center text-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-bold text-sm">{{ section.settings.uc1_label | default: 'Deep Sleep' }}</h4>
+        <p class="text-slate-400 text-xs leading-relaxed">{{ section.settings.uc1_desc | default: 'Fall asleep faster. Stay asleep longer.' }}</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-bold text-sm">{{ section.settings.uc2_label | default: 'Study & Work' }}</h4>
+        <p class="text-slate-400 text-xs leading-relaxed">{{ section.settings.uc2_desc | default: 'Block distractions. Enter flow state.' }}</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-bold text-sm">{{ section.settings.uc3_label | default: 'Stress Recovery' }}</h4>
+        <p class="text-slate-400 text-xs leading-relaxed">{{ section.settings.uc3_desc | default: 'Lower cortisol. Reset your nervous system.' }}</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+        </div>
+        <h4 class="text-white font-bold text-sm">{{ section.settings.uc4_label | default: 'Baby & Nursery' }}</h4>
+        <p class="text-slate-400 text-xs leading-relaxed">{{ section.settings.uc4_desc | default: 'Safe frequencies. Parental peace restored.' }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Use Case Banner",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "White noise not only promotes sleep — it covers external interference so you can focus" },
+    { "type": "text", "id": "uc1_label", "label": "Use case 1 label", "default": "Deep Sleep" },
+    { "type": "text", "id": "uc1_desc", "label": "Use case 1 description", "default": "Fall asleep faster. Stay asleep longer." },
+    { "type": "text", "id": "uc2_label", "label": "Use case 2 label", "default": "Study & Work" },
+    { "type": "text", "id": "uc2_desc", "label": "Use case 2 description", "default": "Block distractions. Enter flow state." },
+    { "type": "text", "id": "uc3_label", "label": "Use case 3 label", "default": "Stress Recovery" },
+    { "type": "text", "id": "uc3_desc", "label": "Use case 3 description", "default": "Lower cortisol. Reset your nervous system." },
+    { "type": "text", "id": "uc4_label", "label": "Use case 4 label", "default": "Baby & Nursery" },
+    { "type": "text", "id": "uc4_desc", "label": "Use case 4 description", "default": "Safe frequencies. Parental peace restored." }
+  ],
+  "presets": [
+    { "name": "Use Case Banner" }
+  ]
+}
+{% endschema %}

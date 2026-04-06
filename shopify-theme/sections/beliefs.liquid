@@ -1,0 +1,106 @@
+<section class="py-24 bg-white overflow-hidden border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text side -->
+      <div class="order-2 lg:order-1 cs-fade-in">
+        <h2 class="text-sm font-bold tracking-widest uppercase text-slate-500 mb-3">{{ section.settings.eyebrow | default: 'The Root Cause' }}</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+          {{ section.settings.heading | default: 'Why Your Brain Isn\'t Broken' }}
+          <br><span class="text-slate-500">{{ section.settings.heading_alt | default: '(Your Environment Is).' }}</span>
+        </h3>
+
+        <div class="space-y-10 mt-10">
+
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 mt-1">
+              <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 mb-2">{{ section.settings.point1_title | default: 'The "Band-Aid" Problem' }}</h4>
+              <p class="text-slate-600 leading-relaxed">{{ section.settings.point1_body | default: 'Sleeping pills and noise-cancelling headphones are just band-aids. They ignore the root cause: an environmental assault of blue light, sirens, and ambient interruptions that corrupt both your sleep and your focus. You can\'t out-meditate a biologically hostile environment.' }}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 mt-1">
+              <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 mb-2">{{ section.settings.point2_title | default: 'The Dual-State Solution' }}</h4>
+              <p class="text-slate-600 leading-relaxed">{{ section.settings.point2_body | default: 'White noise isn\'t just for sleep. The same acoustic masking that silences your bedroom also creates a distraction-free bubble at your desk — helping you study harder, work longer, and recover faster. One compact device. Total environmental control.' }}</p>
+            </div>
+          </div>
+
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 mt-1">
+              <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 mb-2">{{ section.settings.point3_title | default: 'The Evolutionary Signal' }}</h4>
+              <p class="text-slate-600 leading-relaxed">{{ section.settings.point3_body | default: 'For 200,000 years, humans fell asleep to the red-spectrum glow of a fire and the low-frequency hum of nature. The Circadian Shield mimics this exact evolutionary signal, bypassing modern anxiety and triggering deep sleep — or a laser-focused work session.' }}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Image side -->
+      <div class="order-1 lg:order-2 cs-fade-in">
+        <div class="relative rounded-3xl overflow-hidden bg-slate-100 aspect-[4/5]">
+          {%- if section.settings.image != blank -%}
+            <img src="{{ section.settings.image | image_url: width: 900 }}"
+                 alt="{{ section.settings.image.alt | escape }}"
+                 class="w-full h-full object-cover"
+                 width="900" height="1125">
+          {%- else -%}
+            <img src="{{ 'whitenoise-ad.jpg' | asset_url }}"
+                 alt="Circadian Shield on desk — sleep and focus"
+                 class="w-full h-full object-cover"
+                 width="900" height="1125">
+          {%- endif -%}
+          <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/20">
+            <div class="flex items-center gap-3 mb-2">
+              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+              <h4 class="font-bold text-slate-900">{{ section.settings.overlay_title | default: 'Works Day & Night' }}</h4>
+            </div>
+            <p class="text-slate-600 text-sm">{{ section.settings.overlay_body | default: 'Deeper sleep at night. Sharper focus during the day. One compact white noise device that does both.' }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Beliefs / Story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Root Cause" },
+    { "type": "text", "id": "heading", "label": "Heading line 1", "default": "Why Your Brain Isn't Broken" },
+    { "type": "text", "id": "heading_alt", "label": "Heading line 2 (muted)", "default": "(Your Environment Is)." },
+    { "type": "image_picker", "id": "image", "label": "Section image" },
+    { "type": "text", "id": "overlay_title", "label": "Image overlay title", "default": "Works Day & Night" },
+    { "type": "textarea", "id": "overlay_body", "label": "Image overlay body", "default": "Deeper sleep at night. Sharper focus during the day. One compact white noise device that does both." },
+    { "type": "header", "content": "Point 1" },
+    { "type": "text", "id": "point1_title", "label": "Title", "default": "The \"Band-Aid\" Problem" },
+    { "type": "textarea", "id": "point1_body", "label": "Body", "default": "Sleeping pills and noise-cancelling headphones are just band-aids. They ignore the root cause: an environmental assault of blue light, sirens, and ambient interruptions that corrupt both your sleep and your focus." },
+    { "type": "header", "content": "Point 2" },
+    { "type": "text", "id": "point2_title", "label": "Title", "default": "The Dual-State Solution" },
+    { "type": "textarea", "id": "point2_body", "label": "Body", "default": "White noise isn't just for sleep. The same acoustic masking that silences your bedroom also creates a distraction-free bubble at your desk — helping you study harder, work longer, and recover faster." },
+    { "type": "header", "content": "Point 3" },
+    { "type": "text", "id": "point3_title", "label": "Title", "default": "The Evolutionary Signal" },
+    { "type": "textarea", "id": "point3_body", "label": "Body", "default": "For 200,000 years, humans fell asleep to the red-spectrum glow of a fire and the low-frequency hum of nature. The Circadian Shield mimics this exact evolutionary signal." }
+  ],
+  "presets": [
+    { "name": "Beliefs / Story" }
+  ]
+}
+{% endschema %}

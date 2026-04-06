@@ -1,0 +1,65 @@
+<section class="py-24 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{{ section.settings.heading | default: 'Frequently Asked Questions' }}</h2>
+    </div>
+
+    <div class="space-y-0 border-t border-slate-200">
+      {%- for i in (1..7) -%}
+        {%- assign q_key = 'faq' | append: i | append: '_q' -%}
+        {%- assign a_key = 'faq' | append: i | append: '_a' -%}
+        {%- if section.settings[q_key] != blank -%}
+          <div class="border-b border-slate-200 cs-accordion">
+            <button class="w-full py-6 text-left flex justify-between items-center focus:outline-none group"
+                    onclick="csToggleAccordion(this)"
+                    aria-expanded="false">
+              <span class="font-bold text-slate-900 pr-4 group-hover:text-slate-600 transition-colors">{{ section.settings[q_key] }}</span>
+              <span class="text-slate-400 flex-shrink-0 accordion-icon">
+                <svg class="w-5 h-5 plus-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="w-5 h-5 minus-icon hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body overflow-hidden max-h-0 transition-all duration-300">
+              <div class="pb-6 text-slate-600 leading-relaxed pr-8">{{ section.settings[a_key] }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Section heading", "default": "Frequently Asked Questions" },
+    { "type": "header", "content": "FAQ 1" },
+    { "type": "text", "id": "faq1_q", "label": "Question", "default": "Can I use this while working or studying — not just for sleep?" },
+    { "type": "textarea", "id": "faq1_a", "label": "Answer", "default": "Absolutely — and this is one of the most underrated uses. White noise isn't just for bedtime. It covers the interference of external noise (open offices, roommates, street sounds) and helps you enter a focused, distraction-free state." },
+    { "type": "header", "content": "FAQ 2" },
+    { "type": "text", "id": "faq2_q", "label": "Question", "default": "I've tried white noise apps and they don't work. How is this different?" },
+    { "type": "textarea", "id": "faq2_a", "label": "Answer", "default": "Phone speakers are physically incapable of hitting the specific low-frequency Delta wave triggers required for a biological override. They sound 'tinny' and actually keep your brain in a state of high alert. The Circadian Shield uses a custom acoustic driver to create a true 'Invisible Sound Wall' that masks environmental assault." },
+    { "type": "header", "content": "FAQ 3" },
+    { "type": "text", "id": "faq3_q", "label": "Question", "default": "Is the light going to be too bright and keep me awake?" },
+    { "type": "textarea", "id": "faq3_a", "label": "Answer", "default": "No. The Circadian Shield features adjustable 1%–100% red-spectrum dimming designed specifically for pitch-black environments. Unlike blue light from screens, this specific red wavelength signals your brain to produce melatonin, actually helping you fall asleep faster." },
+    { "type": "header", "content": "FAQ 4" },
+    { "type": "text", "id": "faq4_q", "label": "Question", "default": "Is it safe for my baby's nursery?" },
+    { "type": "textarea", "id": "faq4_a", "label": "Answer", "default": "Absolutely. It uses 100% non-toxic materials and features frequencies specifically mapped for infant sleep cycles. The 'Parental Peace' mode is designed exactly for this—providing a safe, soothing environment that helps babies connect their sleep cycles." },
+    { "type": "header", "content": "FAQ 5" },
+    { "type": "text", "id": "faq5_q", "label": "Question", "default": "What if it doesn't work for me?" },
+    { "type": "textarea", "id": "faq5_a", "label": "Answer", "default": "We offer a 90-Night Deep Sleep Guarantee. If you don't experience the best sleep of your life within 90 days, simply return it and we'll buy it back. No questions asked." },
+    { "type": "header", "content": "FAQ 6 (optional)" },
+    { "type": "text", "id": "faq6_q", "label": "Question" },
+    { "type": "textarea", "id": "faq6_a", "label": "Answer" },
+    { "type": "header", "content": "FAQ 7 (optional)" },
+    { "type": "text", "id": "faq7_q", "label": "Question" },
+    { "type": "textarea", "id": "faq7_a", "label": "Answer" }
+  ],
+  "presets": [
+    { "name": "FAQ" }
+  ]
+}
+{% endschema %}

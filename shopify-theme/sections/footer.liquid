@@ -1,0 +1,135 @@
+<footer class="bg-slate-900 text-slate-400">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <h5 class="text-white font-bold text-xl uppercase tracking-tight mb-3">{{ section.settings.brand_name | default: shop.name }}</h5>
+        <p class="text-sm leading-relaxed max-w-sm mb-6">{{ section.settings.brand_desc | default: 'The biological override for your racing mind. Clinically-mapped white noise and red-spectrum light for deeper sleep, sharper focus, and zero distractions.' }}</p>
+        <div class="flex gap-4">
+          {%- if section.settings.facebook_url != blank -%}
+            <a href="{{ section.settings.facebook_url }}" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.tiktok_url != blank -%}
+            <a href="{{ section.settings.tiktok_url }}" aria-label="TikTok" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+              <svg viewBox="0 0 24 24" class="w-4 h-4 fill-white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Shop Links -->
+      <div>
+        <h6 class="text-white font-bold text-xs uppercase tracking-widest mb-4">Shop</h6>
+        <ul class="space-y-3">
+          {%- for i in (1..5) -%}
+            {%- assign label_key = 'shop_link' | append: i | append: '_label' -%}
+            {%- assign url_key = 'shop_link' | append: i | append: '_url' -%}
+            {%- if section.settings[label_key] != blank -%}
+              <li><a href="{{ section.settings[url_key] | default: '#' }}" class="text-sm hover:text-white transition-colors">{{ section.settings[label_key] }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Help Links -->
+      <div>
+        <h6 class="text-white font-bold text-xs uppercase tracking-widest mb-4">Help</h6>
+        <ul class="space-y-3">
+          {%- for i in (1..6) -%}
+            {%- assign label_key = 'help_link' | append: i | append: '_label' -%}
+            {%- assign url_key = 'help_link' | append: i | append: '_url' -%}
+            {%- if section.settings[label_key] != blank -%}
+              <li><a href="{{ section.settings[url_key] | default: '#' }}" class="text-sm hover:text-white transition-colors">{{ section.settings[label_key] }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-center md:text-left space-y-1">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+        <p class="text-slate-500">{{ section.settings.disclaimer | default: '*These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.' }}</p>
+      </div>
+      <!-- Payment icons -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 50 16" class="h-5" aria-label="Visa"><text x="0" y="13" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#1A1F71">VISA</text></svg>
+        </div>
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 38 24" class="h-5" aria-label="Mastercard"><circle cx="14" cy="12" r="10" fill="#EB001B"/><circle cx="24" cy="12" r="10" fill="#F79E1B"/><path d="M19 4.8a10 10 0 000 14.4A10 10 0 0019 4.8z" fill="#FF5F00"/></svg>
+        </div>
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 50 16" class="h-5" aria-label="Amex"><rect width="50" height="16" rx="2" fill="#2557D6"/><text x="4" y="12" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff">AMEX</text></svg>
+        </div>
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 60 16" class="h-5" aria-label="PayPal"><text x="0" y="13" font-family="Arial,sans-serif" font-weight="700" font-size="13" fill="#003087">Pay</text><text x="24" y="13" font-family="Arial,sans-serif" font-weight="700" font-size="13" fill="#009CDE">Pal</text></svg>
+        </div>
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 68 16" class="h-5" aria-label="Shop Pay"><rect width="68" height="16" rx="3" fill="#5A31F4"/><text x="6" y="12" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#fff">Shop Pay</text></svg>
+        </div>
+        <div class="bg-white rounded px-2 py-1 flex items-center justify-center h-8 min-w-[44px]">
+          <svg viewBox="0 0 60 16" class="h-5" aria-label="Apple Pay"><text x="0" y="12" font-family="Arial,sans-serif" font-weight="600" font-size="10" fill="#000">Apple Pay</text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand name" },
+    { "type": "textarea", "id": "brand_desc", "label": "Brand description", "default": "The biological override for your racing mind. Clinically-mapped white noise and red-spectrum light for deeper sleep, sharper focus, and zero distractions." },
+    { "type": "url", "id": "facebook_url", "label": "Facebook URL" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
+    { "type": "header", "content": "Shop Links" },
+    { "type": "text", "id": "shop_link1_label", "label": "Link 1 label", "default": "All Products" },
+    { "type": "url", "id": "shop_link1_url", "label": "Link 1 URL" },
+    { "type": "text", "id": "shop_link2_label", "label": "Link 2 label", "default": "The Solo Shield" },
+    { "type": "url", "id": "shop_link2_url", "label": "Link 2 URL" },
+    { "type": "text", "id": "shop_link3_label", "label": "Link 3 label", "default": "The Dual Shield" },
+    { "type": "url", "id": "shop_link3_url", "label": "Link 3 URL" },
+    { "type": "text", "id": "shop_link4_label", "label": "Link 4 label", "default": "The Family Shield" },
+    { "type": "url", "id": "shop_link4_url", "label": "Link 4 URL" },
+    { "type": "text", "id": "shop_link5_label", "label": "Link 5 label", "default": "Best Sellers" },
+    { "type": "url", "id": "shop_link5_url", "label": "Link 5 URL" },
+    { "type": "header", "content": "Help Links" },
+    { "type": "text", "id": "help_link1_label", "label": "Link 1 label", "default": "About Us" },
+    { "type": "url", "id": "help_link1_url", "label": "Link 1 URL" },
+    { "type": "text", "id": "help_link2_label", "label": "Link 2 label", "default": "FAQs" },
+    { "type": "url", "id": "help_link2_url", "label": "Link 2 URL" },
+    { "type": "text", "id": "help_link3_label", "label": "Link 3 label", "default": "Track My Order" },
+    { "type": "url", "id": "help_link3_url", "label": "Link 3 URL" },
+    { "type": "text", "id": "help_link4_label", "label": "Link 4 label", "default": "Contact Us" },
+    { "type": "url", "id": "help_link4_url", "label": "Link 4 URL" },
+    { "type": "text", "id": "help_link5_label", "label": "Link 5 label", "default": "Refund Policy" },
+    { "type": "url", "id": "help_link5_url", "label": "Link 5 URL" },
+    { "type": "text", "id": "help_link6_label", "label": "Link 6 label", "default": "Shipping Policy" },
+    { "type": "url", "id": "help_link6_url", "label": "Link 6 URL" },
+    { "type": "header", "content": "Legal" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer text", "default": "*These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease." }
+  ],
+  "presets": [
+    { "name": "Footer" }
+  ]
+}
+{% endschema %}

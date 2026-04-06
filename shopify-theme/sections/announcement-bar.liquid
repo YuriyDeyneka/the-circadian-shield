@@ -1,0 +1,20 @@
+<div class="bg-slate-900 text-white text-center py-2 text-xs font-medium tracking-wide uppercase">
+  {{ section.settings.text }}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "White noise for deeper sleep & sharper focus — Free Priority Shipping on all Bundle Orders"
+    }
+  ],
+  "presets": [
+    { "name": "Announcement Bar" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,414 @@
+{%- liquid
+  if template == 'product'
+    assign current_product = product
+  else
+    assign current_product = all_products[section.settings.product_handle]
+  endif
+-%}
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12"
+         data-product-id="{{ current_product.id }}"
+         data-section-id="{{ section.id }}">
+  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+
+    <!-- Left: Image Gallery -->
+    <div class="space-y-4">
+      <div class="relative aspect-square bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        {%- if current_product != blank and current_product.images.size > 0 -%}
+          {%- assign gallery_images = current_product.images -%}
+          <img id="main-image-{{ section.id }}"
+               src="{{ gallery_images[0] | image_url: width: 900 }}"
+               alt="{{ gallery_images[0].alt | escape }}"
+               class="w-full h-full object-cover"
+               width="900" height="900">
+        {%- else -%}
+          {%- assign fallback_images = section.settings.image_1 | default: '' -%}
+          <img id="main-image-{{ section.id }}"
+               src="{{ 'whitenoise-ad.jpg' | asset_url }}"
+               alt="The Circadian Shield"
+               class="w-full h-full object-cover"
+               width="900" height="900">
+        {%- endif -%}
+
+        <div id="image-caption-{{ section.id }}"
+             class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/70 to-transparent px-4 py-4">
+          <p class="text-white text-sm font-medium text-center" id="caption-text-{{ section.id }}">
+            {{ section.settings.image_1_caption | default: 'Clinically-mapped frequencies for deep sleep' }}
+          </p>
+        </div>
+
+        <button onclick="csGalleryPrev('{{ section.id }}')"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow transition-colors text-slate-700 font-bold text-lg leading-none"
+                aria-label="Previous image">&#8249;</button>
+        <button onclick="csGalleryNext('{{ section.id }}')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-8 h-8 flex items-center justify-center shadow transition-colors text-slate-700 font-bold text-lg leading-none"
+                aria-label="Next image">&#8250;</button>
+      </div>
+
+      <!-- Thumbnails -->
+      <div class="grid grid-cols-5 gap-2" id="thumbnails-{{ section.id }}">
+        {%- if current_product != blank and current_product.images.size > 0 -%}
+          {%- for image in current_product.images limit: 5 -%}
+            <button onclick="csGallerySet('{{ section.id }}', {{ forloop.index0 }})"
+                    data-thumb-index="{{ forloop.index0 }}"
+                    class="aspect-square bg-slate-50 rounded-xl overflow-hidden border-2 transition-all {% if forloop.first %}border-slate-900 scale-105{% else %}border-slate-200 hover:border-slate-400{% endif %}">
+              <img src="{{ image | image_url: width: 200 }}"
+                   alt="{{ image.alt | escape }}"
+                   class="w-full h-full object-cover"
+                   width="200" height="200">
+            </button>
+          {%- endfor -%}
+        {%- else -%}
+          {%- assign fallback_srcs = 'whitenoise-ad.jpg,doubleadWhiteNoise.png,gemini-bedroom.png,whitenoisead4.jpeg,gemini-lifestyle.png' | split: ',' -%}
+          {%- assign fallback_captions = section.settings.image_1_caption
+              | append: '||'
+              | append: section.settings.image_2_caption
+              | append: '||'
+              | append: section.settings.image_3_caption
+              | append: '||'
+              | append: section.settings.image_4_caption
+              | append: '||'
+              | append: section.settings.image_5_caption
+              | split: '||' -%}
+          {%- for src in fallback_srcs -%}
+            <button onclick="csGallerySet('{{ section.id }}', {{ forloop.index0 }})"
+                    data-thumb-index="{{ forloop.index0 }}"
+                    class="aspect-square bg-slate-50 rounded-xl overflow-hidden border-2 transition-all {% if forloop.first %}border-slate-900 scale-105{% else %}border-slate-200 hover:border-slate-400{% endif %}">
+              <img src="{{ src | asset_url }}"
+                   alt="Circadian Shield image {{ forloop.index }}"
+                   class="w-full h-full object-cover"
+                   width="200" height="200">
+            </button>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Right: Product Details & Buy Box -->
+    <div class="flex flex-col">
+
+      <!-- Reviews summary -->
+      <div class="flex items-center gap-2 mb-4">
+        <div class="flex text-yellow-400">
+          {%- for i in (1..5) -%}
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          {%- endfor -%}
+        </div>
+        <span class="text-sm text-slate-600 underline cursor-pointer">
+          {{ section.settings.review_score | default: '4.9' }}/5 ({{ section.settings.review_count | default: '1,284' }} Reviews)
+        </span>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">
+        {%- if current_product != blank -%}
+          {{ current_product.title }}
+        {%- else -%}
+          {{ section.settings.product_title | default: 'The Circadian Shield' }}
+        {%- endif -%}
+      </h1>
+      <p class="text-lg text-slate-600 mb-2">{{ section.settings.product_subtitle | default: 'Finally, The "Off Switch" For Your Racing Mind.' }}</p>
+      <p class="text-sm text-slate-500 mb-6">{{ section.settings.product_tagline | default: 'White noise for deeper sleep · cleaner focus · zero distractions' }}</p>
+
+      <!-- Price display -->
+      <div class="flex items-end gap-3 mb-8">
+        <span class="text-3xl font-bold text-slate-900" id="selected-price-{{ section.id }}">
+          {%- if current_product != blank -%}
+            {{ current_product.selected_or_first_available_variant.price | money }}
+          {%- else -%}
+            $47.00
+          {%- endif -%}
+        </span>
+        <span class="text-lg text-slate-400 line-through mb-1" id="compare-price-{{ section.id }}">
+          {%- if current_product != blank and current_product.selected_or_first_available_variant.compare_at_price > 0 -%}
+            {{ current_product.selected_or_first_available_variant.compare_at_price | money }}
+          {%- else -%}
+            $98.00
+          {%- endif -%}
+        </span>
+        <span class="text-sm font-bold text-red-600 bg-red-50 px-2 py-1 rounded mb-1 ml-2" id="sale-badge-{{ section.id }}">Sale</span>
+      </div>
+
+      <!-- Bundle / Variant Selector -->
+      <div class="mb-8">
+        <h3 class="font-semibold text-slate-900 mb-3">Select Bundle</h3>
+        <div class="space-y-3" id="bundle-selector-{{ section.id }}">
+          {%- if current_product != blank and current_product.variants.size > 0 -%}
+            {%- for variant in current_product.variants -%}
+              <div class="relative p-4 rounded-xl border-2 cursor-pointer transition-all bundle-card {% if forloop.first %}border-slate-900 bg-slate-50{% else %}border-slate-200 hover:border-slate-300{% endif %}"
+                   data-variant-id="{{ variant.id }}"
+                   data-price="{{ variant.price | money }}"
+                   data-compare="{{ variant.compare_at_price | money }}"
+                   onclick="csSelectVariant('{{ section.id }}', this)">
+                {%- if variant.compare_at_price > variant.price -%}
+                  {%- assign savings = variant.compare_at_price | minus: variant.price | money -%}
+                  <div class="absolute -top-2.5 right-4 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    Save {{ savings }}
+                  </div>
+                {%- endif -%}
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center {% if forloop.first %}border-slate-900{% else %}border-slate-300{% endif %} variant-radio">
+                      {%- if forloop.first -%}
+                        <div class="w-2.5 h-2.5 bg-slate-900 rounded-full variant-dot"></div>
+                      {%- else -%}
+                        <div class="w-2.5 h-2.5 bg-slate-900 rounded-full variant-dot hidden"></div>
+                      {%- endif -%}
+                    </div>
+                    <div>
+                      <p class="font-bold text-slate-900">{{ variant.title }}</p>
+                      <p class="text-xs text-slate-500">{{ variant.sku }}</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-slate-900">{{ variant.price | money }}</p>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <!-- Fallback static bundles when no Shopify product is linked -->
+            {%- assign bundles = 'solo||duo||family' | split: '||' -%}
+            {%- assign bundle_names = 'The Solo Shield||The Dual Shield||The Family Shield' | split: '||' -%}
+            {%- assign bundle_subtitles = '1x Circadian Shield Device||2x Circadian Shield Devices||3x Circadian Shield Devices' | split: '||' -%}
+            {%- assign bundle_prices = '$27.00||$47.00||$64.00' | split: '||' -%}
+            {%- assign bundle_regular = '$49.00||$98.00||$147.00' | split: '||' -%}
+            {%- assign bundle_badges = '||Save $51||Best Value — Save $83' | split: '||' -%}
+            {%- for bundle in bundles -%}
+              {%- assign bname = bundle_names[forloop.index0] -%}
+              {%- assign bsub = bundle_subtitles[forloop.index0] -%}
+              {%- assign bprice = bundle_prices[forloop.index0] -%}
+              {%- assign breg = bundle_regular[forloop.index0] -%}
+              {%- assign bbadge = bundle_badges[forloop.index0] -%}
+              <div class="relative p-4 rounded-xl border-2 cursor-pointer transition-all bundle-card {% if forloop.index0 == 1 %}border-slate-900 bg-slate-50{% else %}border-slate-200 hover:border-slate-300{% endif %}"
+                   data-price="{{ bprice }}"
+                   data-compare="{{ breg }}"
+                   onclick="csSelectBundle('{{ section.id }}', this)">
+                {%- if bbadge != '' -%}
+                  <div class="absolute -top-2.5 right-4 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    {{ bbadge }}
+                  </div>
+                {%- endif -%}
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center {% if forloop.index0 == 1 %}border-slate-900{% else %}border-slate-300{% endif %} variant-radio">
+                      <div class="w-2.5 h-2.5 bg-slate-900 rounded-full variant-dot {% if forloop.index0 != 1 %}hidden{% endif %}"></div>
+                    </div>
+                    <div>
+                      <p class="font-bold text-slate-900">{{ bname }}</p>
+                      <p class="text-xs text-slate-500">{{ bsub }}</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-slate-900">{{ bprice }}</p>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Add to Cart Form -->
+      {%- if current_product != blank -%}
+        <form action="/cart/add" method="post" enctype="multipart/form-data" id="product-form-{{ section.id }}">
+          <input type="hidden" name="id" id="variant-input-{{ section.id }}"
+                 value="{{ current_product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit"
+                  id="add-to-cart-{{ section.id }}"
+                  class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-xl font-bold text-lg transition-colors mb-6 shadow-lg shadow-slate-900/20">
+            Add to Cart — <span id="btn-price-{{ section.id }}">{{ current_product.selected_or_first_available_variant.price | money }}</span>
+          </button>
+        </form>
+      {%- else -%}
+        <button type="button"
+                id="add-to-cart-{{ section.id }}"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-xl font-bold text-lg transition-colors mb-6 shadow-lg shadow-slate-900/20"
+                onclick="alert('Connect a Shopify product in theme settings to enable checkout.')">
+          Add to Cart — <span id="btn-price-{{ section.id }}">$47.00</span>
+        </button>
+      {%- endif -%}
+
+      <!-- Trust Badges -->
+      <div class="grid grid-cols-3 gap-2 mb-10 border-y border-slate-200 py-6">
+        <div class="flex flex-col items-center text-center gap-2">
+          <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <span class="text-xs font-medium text-slate-600">90-Night<br>Guarantee</span>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2">
+          <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3l14 9-14 9V3z"/>
+          </svg>
+          <span class="text-xs font-medium text-slate-600">Sleep &amp; Focus<br>Proven</span>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2">
+          <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="text-xs font-medium text-slate-600">Zero<br>Configuration</span>
+        </div>
+      </div>
+
+      <!-- Accordions -->
+      <div class="border-t border-slate-200">
+        {%- assign accordions = 'details,shipping,returns' | split: ',' -%}
+        {%- assign accordion_labels = 'Product Details,Shipping,Returns' | split: ',' -%}
+        {%- assign accordion_icons = ',truck,rotate' | split: ',' -%}
+        {%- assign accordion_content_keys = 'accordion_details,accordion_shipping,accordion_returns' | split: ',' -%}
+
+        {%- for key in accordion_content_keys -%}
+          {%- assign label = accordion_labels[forloop.index0] -%}
+          <div class="border-b border-slate-200 cs-accordion" data-accordion>
+            <button class="w-full py-4 flex justify-between items-center font-semibold text-slate-900"
+                    onclick="csToggleAccordion(this)"
+                    aria-expanded="false">
+              <span>{{ label }}</span>
+              <svg class="w-5 h-5 transition-transform accordion-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="accordion-body overflow-hidden max-h-0 transition-all duration-300">
+              <div class="pb-4 text-sm text-slate-600 leading-relaxed">
+                {%- if forloop.index0 == 0 -%}
+                  {{ section.settings.accordion_details | default: 'Mute the 21st century. Use clinically-mapped sound frequencies and red-spectrum light to "flip the switch" into deep sleep in under 5 minutes—without the melatonin hangover. Features 12 soundscapes and adjustable biological red-spectrum glow.' }}
+                {%- elsif forloop.index0 == 1 -%}
+                  {{ section.settings.accordion_shipping | default: 'Free priority shipping on all bundle orders. Standard orders process within 24 hours and typically arrive within 3-5 business days.' }}
+                {%- else -%}
+                  {{ section.settings.accordion_returns | default: 'Protected by our 90-Night Deep Sleep Guarantee. If you don\'t experience the best sleep of your life, return it for a full refund. We\'ll even cover the return shipping.' }}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Gallery data for JS -->
+<script>
+  window.csGalleryData = window.csGalleryData || {};
+  window.csGalleryData['{{ section.id }}'] = {
+    images: [
+      {%- if current_product != blank and current_product.images.size > 0 -%}
+        {%- for image in current_product.images limit: 5 -%}
+          { src: '{{ image | image_url: width: 900 }}', caption: '{{ image.alt | escape }}' }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      {%- else -%}
+        { src: '{{ 'whitenoise-ad.jpg' | asset_url }}', caption: '{{ section.settings.image_1_caption | default: 'Clinically-mapped frequencies for deep sleep' | escape }}' },
+        { src: '{{ 'doubleadWhiteNoise.png' | asset_url }}', caption: '{{ section.settings.image_2_caption | default: 'Works in any room — bedroom, office, nursery' | escape }}' },
+        { src: '{{ 'gemini-bedroom.png' | asset_url }}', caption: '{{ section.settings.image_3_caption | default: 'Compact design fits any bedside table' | escape }}' },
+        { src: '{{ 'whitenoisead4.jpeg' | asset_url }}', caption: '{{ section.settings.image_4_caption | default: 'Fall asleep faster, wake up refreshed' | escape }}' },
+        { src: '{{ 'gemini-lifestyle.png' | asset_url }}', caption: '{{ section.settings.image_5_caption | default: 'Biological red-spectrum glow signals sleep mode to your brain' | escape }}' }
+      {%- endif -%}
+    ],
+    current: 0
+  };
+</script>
+
+{% schema %}
+{
+  "name": "Product Buy Box",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_handle",
+      "label": "Product",
+      "info": "Link your Shopify product. Variants will be used as bundle options."
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product title (fallback)",
+      "default": "The Circadian Shield"
+    },
+    {
+      "type": "text",
+      "id": "product_subtitle",
+      "label": "Product subtitle",
+      "default": "Finally, The \"Off Switch\" For Your Racing Mind."
+    },
+    {
+      "type": "text",
+      "id": "product_tagline",
+      "label": "Product tagline",
+      "default": "White noise for deeper sleep · cleaner focus · zero distractions"
+    },
+    {
+      "type": "text",
+      "id": "review_score",
+      "label": "Review score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count label",
+      "default": "1,284"
+    },
+    {
+      "type": "header",
+      "content": "Gallery captions (used when no Shopify product is linked)"
+    },
+    {
+      "type": "text",
+      "id": "image_1_caption",
+      "label": "Image 1 caption",
+      "default": "Clinically-mapped frequencies for deep sleep"
+    },
+    {
+      "type": "text",
+      "id": "image_2_caption",
+      "label": "Image 2 caption",
+      "default": "Works in any room — bedroom, office, nursery"
+    },
+    {
+      "type": "text",
+      "id": "image_3_caption",
+      "label": "Image 3 caption",
+      "default": "Compact design fits any bedside table"
+    },
+    {
+      "type": "text",
+      "id": "image_4_caption",
+      "label": "Image 4 caption",
+      "default": "Fall asleep faster, wake up refreshed"
+    },
+    {
+      "type": "text",
+      "id": "image_5_caption",
+      "label": "Image 5 caption",
+      "default": "Biological red-spectrum glow signals sleep mode to your brain"
+    },
+    {
+      "type": "header",
+      "content": "Accordion Content"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_details",
+      "label": "Product Details text",
+      "default": "Mute the 21st century. Use clinically-mapped sound frequencies and red-spectrum light to \"flip the switch\" into deep sleep in under 5 minutes—without the melatonin hangover. Features 12 soundscapes and adjustable biological red-spectrum glow."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_shipping",
+      "label": "Shipping text",
+      "default": "Free priority shipping on all bundle orders. Standard orders process within 24 hours and typically arrive within 3-5 business days."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_returns",
+      "label": "Returns text",
+      "default": "Protected by our 90-Night Deep Sleep Guarantee. If you don't experience the best sleep of your life, return it for a full refund. We'll even cover the return shipping."
+    }
+  ],
+  "presets": [
+    { "name": "Product Buy Box" }
+  ]
+}
+{% endschema %}
